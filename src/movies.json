@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Avengers End Game",
+    "image": "/movie1.jpg",
+    "reviews": [
+      {
+        "comment": "It was a great movie",
+        "result": "Positive",
+        "timestamp": "30-08-2023",
+        "upvotes": 20
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Spider-Man No Way Home",
+    "image": "/movie2.jpg",
+    "reviews": [
+      {
+        "comment": "It was a decent movie",
+        "result": "Neutral",
+        "timestamp": "30-08-2023",
+        "upvotes": 9
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Black Panther",
+    "image": "/movie3.jpg",
+    "reviews": [
+      {
+        "comment": "It was a good watch",
+        "result": "Positive",
+        "timestamp": "30-08-2023",
+        "upvotes": 14
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Iron Man 3",
+    "image": "/movie4.jpg",
+    "reviews": [
+      {
+        "comment": "All time favourite",
+        "result": "Positive",
+        "timestamp": "30-08-2023",
+        "upvotes": 48
+      }
+    ]
+  }
+]
