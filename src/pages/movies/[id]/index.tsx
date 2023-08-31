@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import Link from "next/link";
 import Modal from "@/components/Modal";
+import Head from "next/head";
 
 export default function Movie() {
   const router = useRouter();
@@ -65,6 +66,9 @@ export default function Movie() {
 
   return (
     <main className="flex flex-col items-center align-center space-y-4 py-4">
+      <Head>
+        <title>{movie?.name || "Movie"}</title>
+      </Head>
       <Link href="/" className="text-blue-700 underline">
         Back
       </Link>

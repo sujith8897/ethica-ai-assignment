@@ -1,10 +1,14 @@
 import Image from "next/image";
 import MOVIES from "../movies.json";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center align-center space-y-6">
+      <Head>
+        <title>Movie Review Analyzer</title>
+      </Head>
       <h1 className="my-8 text-2xl md:text-3xl font-bold">
         Movie Review Analyzer 🎬
       </h1>
