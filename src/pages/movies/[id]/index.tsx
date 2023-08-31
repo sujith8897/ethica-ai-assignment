@@ -9,25 +9,26 @@ import Head from "next/head";
 
 export default function Movie() {
   const router = useRouter();
-
   const [movie, setMovie] = useState<any>();
   const [toggleReview, setToggleReview] = useState<boolean>(false);
   const [review, setReview] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [reviews, setReviews] = useState<any[]>([]);
 
+  // Handle review submission
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
     try {
+      // Make API call to analyze the review content
       const res: any = await fetch("/api/analyze", {
         method: "POST",
         body: JSON.stringify({ content: review }),
       });
       const resp = await res.json();
       const data = resp?.data;
-      console.log({ data });
       setReview("");
+      // Update the reviews list and sort them
       setReviews(
         handleSortReviews([
           ...reviews,
@@ -46,6 +47,7 @@ export default function Movie() {
     setIsLoading(false);
   };
 
+  // Handle upvote and downvote of a review
   const handleChangeVote = (e: any, index: number, i: number) => {
     e.stopPropagation();
     let updatedReviews = structuredClone(reviews);
@@ -53,14 +55,12 @@ export default function Movie() {
     setReviews(handleSortReviews(updatedReviews));
   };
 
+  // Sort reviews based on upvotes
   const handleSortReviews = (reviews: any[]) => {
-    return reviews.sort(function (a, b) {
-      if (a.upvotes < b.upvotes) return 1;
-      if (a.upvotes > b.upvotes) return -1;
-      return 0;
-    });
+    return reviews.sort((a, b) => b.upvotes - a.upvotes);
   };
 
+  // Initialize movie and reviews when the component mounts
   useEffect(() => {
     const id = router?.query?.id;
     if (typeof id === "string") {
