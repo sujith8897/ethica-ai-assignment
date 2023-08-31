@@ -25,7 +25,8 @@ export default function Home() {
                 alt="movie image"
                 height="200"
                 width="200"
-                className="rounded-md"
+                className="rounded-md w-auto h-auto"
+                priority
               />
             </Link>
           </div>

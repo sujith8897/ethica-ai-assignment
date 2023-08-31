@@ -28,15 +28,17 @@ export default function Movie() {
       const data = resp?.data;
       console.log({ data });
       setReview("");
-      setReviews([
-        ...reviews,
-        {
-          review: review,
-          result: data?.sentiment,
-          timestamp: new Date().toString(),
-          upvotes: 0,
-        },
-      ]);
+      setReviews(
+        handleSortReviews([
+          ...reviews,
+          {
+            review: review,
+            result: data?.sentiment,
+            timestamp: new Date().toString(),
+            upvotes: 0,
+          },
+        ])
+      );
       setToggleReview(false);
     } catch (e: any) {
       console.log({ e });
@@ -48,7 +50,15 @@ export default function Movie() {
     e.stopPropagation();
     let updatedReviews = structuredClone(reviews);
     updatedReviews[index].upvotes = updatedReviews[index].upvotes + i;
-    setReviews(updatedReviews);
+    setReviews(handleSortReviews(updatedReviews));
+  };
+
+  const handleSortReviews = (reviews: any[]) => {
+    return reviews.sort(function (a, b) {
+      if (a.upvotes < b.upvotes) return 1;
+      if (a.upvotes > b.upvotes) return -1;
+      return 0;
+    });
   };
 
   useEffect(() => {
@@ -57,7 +67,7 @@ export default function Movie() {
       try {
         const parsedId = parseInt(id);
         setMovie(MOVIES[parsedId - 1]);
-        setReviews(MOVIES[parsedId - 1]?.reviews);
+        setReviews(handleSortReviews(MOVIES[parsedId - 1]?.reviews));
       } catch (error) {
         console.error("Failed to parse ID:", error);
       }
@@ -82,7 +92,8 @@ export default function Movie() {
                 alt="movie image"
                 height="200"
                 width="200"
-                className="rounded-md"
+                className="rounded-md w-auto h-auto"
+                priority
               />
             ) : (
               <div className="w-[200px] h-[300px] bg-gray-100 rounded-md"></div>
