@@ -5,9 +5,9 @@
     "image": "/movie1.jpg",
     "reviews": [
       {
-        "comment": "It was a great movie",
+        "review": "It was a great movie",
         "result": "Positive",
-        "timestamp": "30-08-2023",
+        "timestamp": "Thu Aug 31 2023 13:05:09",
         "upvotes": 20
       }
     ]
@@ -18,9 +18,9 @@
     "image": "/movie2.jpg",
     "reviews": [
       {
-        "comment": "It was a decent movie",
+        "review": "It was a decent movie",
         "result": "Neutral",
-        "timestamp": "30-08-2023",
+        "timestamp": "Thu Aug 31 2023 13:05:09",
         "upvotes": 9
       }
     ]
@@ -31,9 +31,9 @@
     "image": "/movie3.jpg",
     "reviews": [
       {
-        "comment": "It was a good watch",
+        "review": "It was a good watch",
         "result": "Positive",
-        "timestamp": "30-08-2023",
+        "timestamp": "Thu Aug 31 2023 13:05:09",
         "upvotes": 14
       }
     ]
@@ -44,9 +44,9 @@
     "image": "/movie4.jpg",
     "reviews": [
       {
-        "comment": "All time favourite",
+        "review": "All time favourite",
         "result": "Positive",
-        "timestamp": "30-08-2023",
+        "timestamp": "Thu Aug 31 2023 13:05:09",
         "upvotes": 48
       }
     ]
